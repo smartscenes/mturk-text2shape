@@ -1,0 +1,53 @@
+# mechanical turk experiment/task options file
+# the task will be launched with these options
+# by running the rake task
+#   > rake mturk:run name
+
+
+# REQUIRED FIELDS
+
+# appearance on the Mechanical Turk interface
+title: Give descriptions of objects
+description: In one or two sentence, provide descriptions of common objects.
+# pay per HIT in US cents
+reward: 30
+# number of assignments (per hit) to be issued in this task/experiment
+num_assignments: 50
+
+
+# OPTIONAL FIELDS
+
+# maximum number of distinct workers allowed
+#max_workers:  # defaults to num_assignments
+# maximum number of assignments/HITs per worker
+# NOTE: this corresponds to the number of hits issued for the task
+#       and acts as a multiplier on the num_assignments
+max_hits_per_worker: 5 # defaults to 1
+# keywords for display on mechanical turk interface (comma separated list)
+keywords: objects, pictures, object description
+# time in seconds before the HITs are automatically removed from MTurk
+#lifetime:  # defaults to 3 days
+# maximum time in seconds for a worker to complete a HIT after accepting
+#max_task_time:  # defaults to 1 hour
+
+# whether this task requires WebGL
+require_webgl: false
+
+# Rails experiment control configuration
+controller: model2desc
+
+# EXPERIMENT CONFIGURATION
+conf:
+  useGIFs: true
+  minTimeSecPerItem: 10
+  nScenes: 8
+  sceneEditSecs: 30
+  doneThreshold: 5
+  inputFile: public/experiments/model2desc/shapenetcore-tables-and-chairs.csv
+  condition: chairs-and-tables
+  uploadSummary: true
+  exampleImagesPath: /experiments/model2desc/examples/
+#  overlay: mturkOverlayModel
+  autoRotate: true
+#  selectPolicy: mincount_random_10
+#  urlPattern: http://dovahkiin.stanford.edu/fuzzybox/simple-model-viewer2.html?modelId=${itemId}&autoRotate=1

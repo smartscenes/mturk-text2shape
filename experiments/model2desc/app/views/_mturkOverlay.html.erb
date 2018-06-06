@@ -1,0 +1,60 @@
+<div id="taskInstructions" class="wholescreenOverlay">
+  <div align="center" class="taskInstructions">
+    <div style='text-align:left; max-width: 800px'>
+      <p>
+        You will see <%=@entries.length%> objects.
+        Give a short 1-2 sentence description of each object.
+        Mention the <b>color, shape, material, and physical appearance</b> of the object.
+        Do <b>NOT</b> mention subjective attributes like "beautiful", or "nice", or anything not visible in the object.
+      </p>
+      <p>
+        Examples of good descriptions are:
+        <i>"a white cup with black vertical stripes down the sides, and a short round base"</i>, or
+        <i>"an old-fashioned, yellow motorcycle with a horn, and a padded leather seat"</i>.
+        Do <b>NOT</b> just say a name like <i>"chair"</i> or <i>"motorcycle"</i>.
+        Avoid punctuations like parentheses and slashes.
+      </p>
+      <p>
+        In general, <b>think of what other people would say to describe the object to you</b>.
+        Other people will see your description and have to pick the object you are describing.
+        If they can't pick the object, your description will be rejected.
+      </p>
+      <p>
+        Each object should take you about <%=@taskTime['sceneTimeInSecs']%> seconds to complete.
+        <!--You might need to wait a few seconds for the object to appear.-->
+        <!--If you don't see the object after a few seconds type <b>"NOT VISIBLE"</b>.-->
+        <!--You can drag with the mouse to rotate the object if you want.-->
+        The task should take about <%=@taskTime['taskTime'] %> in total.
+      </p>
+     </div>
+    <div  class="center">
+      <input type="button" id="startButton" class="largeButton" value="Start"/>
+    </div>
+  </div>
+</div>
+
+<div id="mturkOverlay" style="visibility: hidden;">
+  <div class="container">
+    <div class="row center">
+      <div id="progressTextDiv" class="col-md-12 center largeFont"></div>
+      <div class="col-md-12">
+        <div id="model"></div>
+        <img id="modelImg" src=""/>
+        <div id="category" class="largeFont"
+             style="z-index: 3; position: absolute; top: 20px; right: 40px;"></div>
+      </div>
+    </div>
+    <div id="textInput" class="row textDescription center">
+      <div class="col-md-12 center">
+        <p>
+          Describe the <b>color, shape, material, and physical appearance</b> of the object to another person in 1-2 sentences.
+        </p>
+        <%= text_area_tag('description', nil, {class: 'col-md-8 col-md-offset-2', rows: 2}) %>
+      </div>
+      <div class="col-md-12 center">
+        <input type="button" id="nextButton" class="largeButton" value="Next"/>
+      </div>
+    </div>
+  </div>
+</div>
+

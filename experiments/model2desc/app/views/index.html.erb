@@ -1,0 +1,11 @@
+<div id="ui">
+  <%= render '/experiments/submit_mturk_report' %>
+  <%= render @conf.fetch('overlay', 'mturkOverlay') %>
+  <%= render '/experiments/globals' %>
+</div>
+<%= render '/experiments/comments' %>
+<% if @conf['useGIFs'] %>
+  <%= requirejs_include_tag(@conf.fetch('taskjs', 'experiments/modelgif2desc'))%>
+<% else %>
+  <%= requirejs_include_tag(@conf.fetch('taskjs', 'experiments/model2desc'))%>
+<% end %>

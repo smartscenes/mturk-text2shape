@@ -1,0 +1,60 @@
+# mechanical turk experiment/task options file
+# the task will be launched with these options
+# by running the rake task
+#   > rake mturk:run name
+
+
+# REQUIRED FIELDS
+
+# appearance on the Mechanical Turk interface
+title: Select a image to match object descriptions
+description: Given a description of a object, you will need to select the image that best matches the description.
+# pay per HIT in US cents
+reward: 30
+# number of assignments to be issued in this task/experiment
+num_assignments: 100
+
+
+# OPTIONAL FIELDS
+
+# maximum number of distinct workers allowed
+#max_workers:  # defaults to num_assignments
+# maximum number of assignments/HITs per worker
+max_hits_per_worker: 5 # defaults to 1
+# keywords for display on mechanical turk interface (comma separated list)
+#keywords:  # defaults to nothing
+# time in seconds before the HITs are automatically removed from MTurk
+#lifetime:  # defaults to 3 days
+# maximum time in seconds for a worker to complete a HIT after accepting
+#max_task_time:  # defaults to 1 hour
+
+# whether this task requires WebGL
+require_webgl: false
+
+# Rails experiment control configuration
+controller: verify_model_desc
+
+# EXPERIMENT CONFIGURATION
+conf:
+  itemType: object
+  nScenes: 12
+  sceneEditSecs: 15
+  inputTask: model2desc
+  inputFilters:
+    condition: chairs-and-tables
+    hasStatus: false
+  defaultSource: 3dw
+  #imageUrlPattern: "https://dovahkiin.stanford.edu/text2scene/screenshots/models/${source}/${id}/${id}-0.png"
+  #modelsFile: public/experiments/model2desc/models.csv
+  modelsFile: public/experiments/model2desc/shapenetcore-tables-and-chairs.csv
+  condition: chairs-and-tables
+  nChoices: 5
+  doneThreshold: 1
+  examples:
+  - description: Ornate red and black electric guitar. cutout design.
+    correct: 1
+    images: ["b6d0cf333c7e013993f0194265a9746c-13.png", "c3c9bc3aae8231ba93f0194265a9746c-13.png", "2adbf6c3f8f2d9ca7fe36b1f0a632ed8-13.png", "4e982d5baec36536c86b22832615248-13.png", "8402cf0cbb6dfc92b5b477b4ad381f9-13.png"]
+  exampleImagesPath: /experiments/verify_model_desc/examples/
+  allowPass: true
+  uploadSummary: true
+  selectPolicy: mincount_random
