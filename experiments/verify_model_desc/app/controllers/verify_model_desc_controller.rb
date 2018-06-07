@@ -6,13 +6,13 @@ class Experiments::VerifyModelDescController < ApplicationController
   include Experiments::ExperimentsHelper
   include Experiments::SelectItemHelper
 
-  before_filter :load_new_tab_params, only: [:index]
-  before_filter :load_data_generic, only: [:index]
-  before_filter :estimate_task_time, only: [:index]
+  before_action :load_new_tab_params, only: [:index]
+  before_action :load_data_generic, only: [:index]
+  before_action :estimate_task_time, only: [:index]
 
-  before_filter :can_view_tasks_filter, only: [:results, :view]
-  before_filter :retrieve_list, only: [:results]
-  before_filter :retrieve_item, only: [:view, :load]
+  before_action :can_view_tasks_filter, only: [:results, :view]
+  before_action :retrieve_list, only: [:results]
+  before_action :retrieve_item, only: [:view, :load]
 
   layout 'basic', only: [:index]
 
