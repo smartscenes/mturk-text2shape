@@ -2,8 +2,14 @@
 
 script_dir="`dirname \"$0\"`"
 
-src_dir=${1:-$script_dir/../experiments}
-tgt_dir=${2:-staging}
+tgt_dir=$1
+src_dir=${2:-$script_dir/../experiments}
+
+if [ -z "$tgt_dir" ]; then
+	echo "Usage: setup.sh <target_dir>"
+	echo "Please specify the target directory to link to"
+	exit 1
+fi
 
 function link_files {
   dir1=$1
@@ -13,9 +19,10 @@ function link_files {
   		mkdir -p "$dir2"
   	fi
   	if [ -d "$dir2" ]; then
-	  	for f in $(ls -d ${dir1}/*); do
+		absdir1="$( cd "$dir1" && pwd )"
+	  	for f in $(ls -d ${absdir1}/*); do
 	  		echo "ln -s $f $dir2" 
-	  		ln -s $f "$dir2"
+	  		ln -sf $f "$dir2"
 	  	done
 	else
 		echo "No target directory $dir2"
@@ -25,7 +32,7 @@ function link_files {
 
 function link_experiment {
 	expr_dir=$1
-	echo "linking files for experiment in $expr_dir"
+	echo "linking files for experiment in $expr_dir to $tgt_dir"
 	link_files "$expr_dir/app/controllers"  "$tgt_dir/app/controllers/experiments" 
 	link_files "$expr_dir/app/helpers"  "$tgt_dir/app/helpers/experiments" 
 	link_files "$expr_dir/app/views"  "$tgt_dir/app/views/experiments"
