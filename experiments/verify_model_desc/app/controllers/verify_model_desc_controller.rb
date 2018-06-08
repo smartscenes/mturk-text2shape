@@ -4,7 +4,6 @@ class Experiments::VerifyModelDescController < ApplicationController
   include ActionView::Helpers::DateHelper
   include MturkHelper
   include Experiments::ExperimentsHelper
-  include Experiments::SelectItemHelper
 
   before_action :load_new_tab_params, only: [:index]
   before_action :load_data_generic, only: [:index]

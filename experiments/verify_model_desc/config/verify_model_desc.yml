@@ -37,8 +37,8 @@ controller: verify_model_desc
 # EXPERIMENT CONFIGURATION
 conf:
   itemType: object
-  nScenes: 12
-  sceneEditSecs: 15
+  nItems: 12
+  itemEditSecs: 15
   inputTask: model2desc
   inputFilters:
     condition: chairs-and-tables

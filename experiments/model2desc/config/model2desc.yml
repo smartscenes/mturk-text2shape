@@ -40,8 +40,8 @@ controller: model2desc
 conf:
   useGIFs: true
   minTimeSecPerItem: 10
-  nScenes: 8
-  sceneEditSecs: 30
+  nItems: 8
+  itemEditSecs: 30
   doneThreshold: 5
   inputFile: public/experiments/model2desc/shapenetcore-tables-and-chairs.csv
   condition: chairs-and-tables

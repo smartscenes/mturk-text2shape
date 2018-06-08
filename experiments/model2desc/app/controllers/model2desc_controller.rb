@@ -4,7 +4,6 @@ class Experiments::Model2descController < ApplicationController
   include ActionView::Helpers::DateHelper
   include MturkHelper
   include Experiments::ExperimentsHelper
-  include Experiments::Model2descHelper
 
   before_action :load_new_tab_params, only: [:index]
   before_action :load_data_generic, only: [:index]
