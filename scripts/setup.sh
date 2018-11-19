@@ -33,9 +33,11 @@ function link_files {
 function link_dir {
   dir1=$1
   dir2=$2	
-  absdir1="$( cd "$dir1" && pwd )"
-  echo "ln -s $absdir1 $dir2" 
-  ln -sf "$absdir1" "$dir2"
+  if [ -e "$dir1" ]; then
+    absdir1="$( cd "$dir1" && pwd )"
+    echo "ln -s $absdir1 $dir2" 
+    ln -sf "$absdir1" "$dir2"
+  fi
 }
 
 
