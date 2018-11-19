@@ -50,4 +50,4 @@ conf:
 #  overlay: mturkOverlayModel
   autoRotate: true
 #  selectPolicy: mincount_random_10
-#  urlPattern: http://dovahkiin.stanford.edu/fuzzybox/simple-model-viewer2.html?modelId=${itemId}&autoRotate=1
+#  urlPattern: http://some-server-name/simple-model-viewer2.html?modelId=${itemId}&autoRotate=1
