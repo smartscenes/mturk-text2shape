@@ -23,7 +23,7 @@ Add to `mturk-rails/config/routes.rb`
   get 'experiments/verify_model_desc/results', to: 'experiments/verify_model_desc#results'
 ```
 
-## Basic 
+## Basic command to run task
 
 To run task on Amazon MTurk
 - `RAILS_ENV=production bundle exec rake mturk:run[model2desc]`
