@@ -1,5 +1,6 @@
-# mturk-text2voxel
+# mturk-text2shape
 
+This repository contains the code we used for collecting model descriptions for ShapeNet for the [Text2Shape](http://text2shape.stanford.edu/) project.
 
 ## Getting started
 Get [mturk-rails](https://github.com/smartscenes/mturk-rails) and follow directions to install ruby on rails and setup mturk-rails according to the [mturk-rails/README.md](https://github.com/smartscenes/mturk-rails/README.md)
